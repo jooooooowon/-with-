@@ -10,7 +10,8 @@ public class Main {
 	public Main() {
 		Scanner sc = new Scanner(System.in);
 		int[][] map = MakeMap.map();
-		HashMap<Integer, Integer> snakeAndLadder = (HashMap<Integer, Integer>) MakeMap.snakeAndLadder();
-		PlayGame.game(sc,map,snakeAndLadder);
+		HashMap<Integer, Integer> ladder = (HashMap<Integer, Integer>) MakeMap.ladder();
+		HashMap<Integer, Integer> snake = (HashMap<Integer, Integer>) MakeMap.snake();
+		PlayGame.game(sc, map, snake, ladder);
 	}
 }
