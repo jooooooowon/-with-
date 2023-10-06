@@ -61,29 +61,40 @@ public class PlayGame {
 			user.x -= 10;
 		}
 		boolean tf = true;
+		StringBuilder sb = new StringBuilder();
 		while (tf) {
 			tf = false;
 			// 사다리의 좌표와 같다면 이동
 			for (Mark key : ladder.keySet()) {
 				if (user.equals(key)) {
+					sb.append("사다리를 탑니다!!");
+					sb.append("\n");
+					sb.append(user.toString()).append(" -> ");
 					Mark value = ladder.get(key);
 					key.y = value.y;
 					key.x = value.x;
 					// 또 이동 가능할 수 있으므로 ture
+					sb.append(user.toString()).append("\n");
 					tf = true;
 				}
 			}
+			sb = new StringBuilder();
 			// 뱀의 좌표와 같다면 이동
 			for (Mark key : snake.keySet()) {
 				if (user.equals(key)) {
+					sb.append("뱀을 만났습니다!!");
+					sb.append("\n");
+					sb.append(user.toString()).append(" -> ");
 					Mark value = ladder.get(key);
 					key.y = value.y;
 					key.x = value.x;
 					// 또 이동 가능할 수 있으므로 ture
+					sb.append(user.toString()).append("\n");
 					tf = true;
 				}
 			}
 		}
+		System.out.print(sb.toString());
 	}
 
 	private static void showSnakeAndLadder(HashMap<Mark, Mark> snake, HashMap<Mark, Mark> ladder) {
