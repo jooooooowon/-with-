@@ -15,21 +15,36 @@ public class PlayGame {
 		while (!user1.isWinner() && !user2.isWinner()) {
 			map(user1, user2);
 			showSnakeAndLadder(snake, ladder);
+			if (who % 2 == 0) {
+				System.out.println("user1 차례!");
+			} else {
+				System.out.println("user2 차례!");
+			}
 			System.out.println("아무 버튼이나 눌러 주사위를 굴리세요. (0을 누르면 게임 종료)");
 			String str = sc.next();
 			if (str.equals("0")) {
 				System.out.println("게임 종료.");
 				System.exit(0);
 			}
+			// user를 잡았을 때를 확인하기 위한 test
+//			int dice = Integer.parseInt(str);
 			int dice = (int) (Math.random() * 6 + 1);
 			System.out.println("주사위 숫자 : " + dice);
-			if (who % 2 == 0) {
+			if (who++ % 2 == 0) {
 				move(user1, dice, snake, ladder);
-			}
-			if (who % 2 == 1) {
+				if (user1.equals(user2)) {
+					System.out.println("user2를 잡았습니다!!");
+					user2.y = 1;
+					user2.x = 1;
+				}
+			} else {
 				move(user2, dice, snake, ladder);
+				if (user2.equals(user1)) {
+					System.out.println("user1를 잡았습니다!!");
+					user1.y = 1;
+					user1.x = 1;
+				}
 			}
-			who++;
 		}
 		if (user1.isWinner()) {
 			System.out.println("user1 승리!!");
@@ -94,11 +109,13 @@ public class PlayGame {
 				if (user1.mark(i, j)) {
 					sb.append("x");
 					tf = false;
+					location++;
 				}
 				// user2 은 o로
 				if (user2.mark(i, j)) {
 					sb.append("o");
 					tf = false;
+					location++;
 				}
 				// 나머지는 그냥 숫자
 				if (tf) {

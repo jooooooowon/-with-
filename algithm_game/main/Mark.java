@@ -16,7 +16,7 @@ public class Mark {
 
 	// 현재 마크에 있는 사람이 winner인 지 확인하는 메서드
 	public boolean isWinner() {
-		if (y >= 10 || (y == 10 && x == 10)) {
+		if (y > 10 || (y == 10 && x == 10)) {
 			return true;
 		}
 		return false;
