@@ -117,7 +117,7 @@ public class PlayGame {
 					sb.append("뱀을 만났습니다!!");
 					sb.append("\n");
 					sb.append(user.toString()).append(" -> ");
-					Mark value = ladder.get(key);
+					Mark value = snake.get(key);
 					key.y = value.y;
 					key.x = value.x;
 					// 또 이동 가능할 수 있으므로 ture
