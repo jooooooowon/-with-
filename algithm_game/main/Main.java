@@ -7,11 +7,11 @@ import with.makeMap.MakeMap;
 import with.play.PlayGame;
 
 public class Main {
-	public Main() {
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int[][] map = MakeMap.map();
-		HashMap<Integer, Integer> ladder = (HashMap<Integer, Integer>) MakeMap.ladder();
-		HashMap<Integer, Integer> snake = (HashMap<Integer, Integer>) MakeMap.snake();
+		HashMap<Mark, Mark> ladder = (HashMap<Mark, Mark>) MakeMap.ladder();
+		HashMap<Mark, Mark> snake = (HashMap<Mark, Mark>) MakeMap.snake();
 		PlayGame.game(sc, snake, ladder);
 	}
 }
