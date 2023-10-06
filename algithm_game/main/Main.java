@@ -12,6 +12,6 @@ public class Main {
 		int[][] map = MakeMap.map();
 		HashMap<Integer, Integer> ladder = (HashMap<Integer, Integer>) MakeMap.ladder();
 		HashMap<Integer, Integer> snake = (HashMap<Integer, Integer>) MakeMap.snake();
-		PlayGame.game(sc, map, snake, ladder);
+		PlayGame.game(sc, snake, ladder);
 	}
 }
