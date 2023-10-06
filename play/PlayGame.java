@@ -9,7 +9,13 @@ public class PlayGame {
 	static public void game(Scanner sc, HashMap<Mark, Mark> snake, HashMap<Mark, Mark> ladder) {
 		Mark user1 = new Mark();
 		Mark user2 = new Mark();
-		System.out.println("game?");
+		start();
+		System.out.println("시작하려면 아무 버튼이나 눌러주세요. (0을 누르면 게임 종료)");
+		String str = sc.next();
+		if (str.equals("0")) {
+			System.out.println("게임 종료.");
+			System.exit(0);
+		}
 		// 0은 user1, 1은 user2
 		int who = 0;
 		while (!user1.isWinner() && !user2.isWinner()) {
@@ -21,7 +27,7 @@ public class PlayGame {
 				System.out.println("user2 차례!");
 			}
 			System.out.println("아무 버튼이나 눌러 주사위를 굴리세요. (0을 누르면 게임 종료)");
-			String str = sc.next();
+			str = sc.next();
 			if (str.equals("0")) {
 				System.out.println("게임 종료.");
 				System.exit(0);
@@ -52,6 +58,33 @@ public class PlayGame {
 			System.out.println("user2 승리!!");
 		}
 
+	}
+
+	private static void start() {
+		System.out.println("                    /^\\/^\\\r\n" + 
+				"                  _|__|  O|\r\n" + 
+				"         \\/     /~     \\_/ \\\r\n" + 
+				"          \\____|__________/  \\\r\n" + 
+				"                 \\_______      \\\r\n" + 
+				"                         `\\     \\                 \\\r\n" + 
+				"                           |     |                  \\\r\n" + 
+				"                          /      /                    \\\r\n" + 
+				"                         /     /                       \\\r\n" + 
+				"                       /      /                         \\ \\\r\n" + 
+				"                      /     /                            \\  \\\r\n" + 
+				"                    /     /             _----_            \\   \\\r\n" + 
+				"                   /     /           _-~      ~-_         |   |\r\n" + 
+				"                  (      (        _-~    _--_    ~-_     _/   |\r\n" + 
+				"                   \\      ~-____-~    _-~    ~-_    ~-_-~    /\r\n" + 
+				"                     ~-_           _-~          ~-_       _-~   \r\n" + 
+				"                        ~--______-~                ~-___-~\r\n" + 
+				"\r\n" + 
+				"");
+		System.out.println(".▄▄ ·  ▐ ▄  ▄▄▄· ▄ •▄ ▄▄▄ ..▄▄ ·      ▄▄▄·  ▐ ▄ ·▄▄▄▄      ▄▄▌   ▄▄▄· ·▄▄▄▄  ·▄▄▄▄  ▄▄▄ .▄▄▄  .▄▄ · \r\n" + 
+				"▐█ ▀. •█▌▐█▐█ ▀█ █▌▄▌▪▀▄.▀·▐█ ▀.     ▐█ ▀█ •█▌▐███▪ ██     ██•  ▐█ ▀█ ██▪ ██ ██▪ ██ ▀▄.▀·▀▄ █·▐█ ▀. \r\n" + 
+				"▄▀▀▀█▄▐█▐▐▌▄█▀▀█ ▐▀▀▄·▐▀▀▪▄▄▀▀▀█▄    ▄█▀▀█ ▐█▐▐▌▐█· ▐█▌    ██▪  ▄█▀▀█ ▐█· ▐█▌▐█· ▐█▌▐▀▀▪▄▐▀▀▄ ▄▀▀▀█▄\r\n" + 
+				"▐█▄▪▐███▐█▌▐█ ▪▐▌▐█.█▌▐█▄▄▌▐█▄▪▐█    ▐█ ▪▐▌██▐█▌██. ██     ▐█▌▐▌▐█ ▪▐▌██. ██ ██. ██ ▐█▄▄▌▐█•█▌▐█▄▪▐█\r\n" + 
+				" ▀▀▀▀ ▀▀ █▪ ▀  ▀ ·▀  ▀ ▀▀▀  ▀▀▀▀      ▀  ▀ ▀▀ █▪▀▀▀▀▀•     .▀▀▀  ▀  ▀ ▀▀▀▀▀• ▀▀▀▀▀•  ▀▀▀ .▀  ▀ ▀▀▀▀ ");
 	}
 
 	private static void move(Mark user, int dice, HashMap<Mark, Mark> snake, HashMap<Mark, Mark> ladder) {
